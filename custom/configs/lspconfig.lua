@@ -11,14 +11,6 @@ lspconfig.phpactor.setup({
     root_dir = lspconfig.util.root_pattern("composer.json", ".git"),
 })
 
-lspconfig.sourcekit.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-    cmd ={ "sourcekit-lsp" },
-    filetype = { "swift", "c", "cpp", "objective-c", "objective-cpp" },
-    root_dir = lspconfig.util.root_pattern("Package.swift", ".git"),
-})
-
 lspconfig.tsserver.setup({
     on_attach = on_attach,
     capabilities = capabilities,
@@ -37,3 +29,26 @@ lspconfig.pyright.setup({
     filetype={"python"}
 })
 
+lspconfig.arduino_language_server.setup({
+    on_attach=on_attach,
+    capabilities=capabilities;
+    cmd={ "arduino-language-server" },
+    filetype={"arduino"}
+})
+
+lspconfig.clangd.setup({
+    on_attach=on_attach,
+    capabilities=capabilities;
+    cmd={ "clangd" },
+    filetype= { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+    root_dir= lspconfig.util.root_pattern(
+          '.clangd',
+          '.clang-tidy',
+          '.clang-format',
+          'compile_commands.json',
+          'compile_flags.txt',
+          'configure.ac',
+          '.git'
+        ),
+    single_file_support=true
+})

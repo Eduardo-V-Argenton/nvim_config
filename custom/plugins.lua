@@ -10,7 +10,11 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = {
         ensure_installed = {
-            "phpactor","sourcekit","typescript-language-server","pyright"
+            "phpactor",
+            "arduino-language-server",
+            "clangd",
+            "typescript-language-server",
+            "pyright"
         },
     },
 
